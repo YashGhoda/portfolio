@@ -1,18 +1,59 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: #f7f9fb;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f7f9fb 100%);
   color: #222;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: #d1d5db;
 }
 
 .App {
   text-align: center;
 }
 
+.App.dark {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+.beautiful-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f7f9fb 60%, #c7d2fe 100%);
+}
+
+.App.dark .beautiful-bg {
+  background: linear-gradient(120deg, #111827 60%, #374151 100%);
+}
+
 .hero-section {
   background: linear-gradient(120deg, #007cf0 0%, #00dfd8 100%);
   color: #fff;
   padding: 80px 20px 60px 20px;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 8px 32px rgba(0,124,240,0.10);
+}
+
+.App.dark .hero-section {
+  background: linear-gradient(120deg, #3b82f6 0%, #10b981 100%);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  background: #fff;
 }
 .hero-section h1 {
   font-size: 3rem;
@@ -23,6 +64,15 @@ body {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .cta-btn {
   background: #fff;
@@ -39,10 +89,19 @@ body {
   background: #00dfd8;
   color: #fff;
 }
+.cta-btn.secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.cta-btn.secondary:hover {
+  background: #fff;
+  color: #007cf0;
+}
 
 section {
   margin: 40px auto;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 0 20px;
   text-align: left;
 }
@@ -50,6 +109,10 @@ section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #007cf0;
+}
+
+.App.dark section h2 {
+  color: #3b82f6;
 }
 
 .about-section p {
@@ -61,48 +124,206 @@ section h2 {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .project-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,124,240,0.10);
   padding: 24px;
-  flex: 1 1 250px;
-  min-width: 250px;
-  max-width: 400px;
+  flex: 1 1 260px;
+  min-width: 260px;
+  max-width: 315px;
   margin-bottom: 20px;
   transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid #e0e7ff;
+  backdrop-filter: blur(6px);
+  animation: fadeInUp 0.7s;
 }
+
+.App.dark .project-card {
+  background: rgba(31, 41, 55, 0.85);
+  border: 1.5px solid #374151;
+  color: #d1d5db;
+}
+
 .project-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 8px 32px rgba(0,124,240,0.13);
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(0,124,240,0.18);
+}
+
+.App.dark .project-card:hover {
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.18);
+}
+
+.project-img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
 .project-card h3 {
   margin-top: 0;
   color: #00b8a9;
 }
+
+.App.dark .project-card h3 {
+  color: #10b981;
+}
+
 .project-card a {
   color: #007cf0;
   text-decoration: none;
   font-weight: 500;
+  margin-top: 10px;
 }
 .project-card a:hover {
   text-decoration: underline;
 }
 
-.skills-list {
+.App.dark .project-card a {
+  color: #3b82f6;
+}
+
+.research-section, .internship-section {
+  text-align: left;
+  margin-bottom: 40px;
+}
+.research-card {
   display: flex;
-  gap: 16px;
+  gap: 24px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,124,240,0.10);
+  padding: 24px;
+  border: 1.5px solid #e0e7ff;
+  backdrop-filter: blur(6px);
+  animation: fadeInUp 0.7s;
   flex-wrap: wrap;
 }
-.skill {
-  background: #e0f7fa;
-  color: #007cf0;
-  padding: 10px 22px;
+
+.App.dark .research-card {
+  background: rgba(31, 41, 55, 0.85);
+  border: 1.5px solid #374151;
+  color: #d1d5db;
+}
+
+.research-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.research-content {
+  flex: 1;
+}
+.research-content h3 {
+  color: #00b8a9;
+  margin-top: 0;
+}
+.read-more-btn {
+  background: #007cf0;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
   border-radius: 20px;
-  font-weight: 600;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+.read-more-btn:hover {
+  background: #00dfd8;
+  color: #007cf0;
+}
+
+.App.dark .read-more-btn {
+  color: #3b82f6;
+}
+.read-more-btn:hover {
+  background: #10b981;
+  color: #1f2937;
+}
+
+.internship-item {
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,124,240,0.10);
+  padding: 24px;
+  border: 1.5px solid #e0e7ff;
+  backdrop-filter: blur(6px);
+  animation: fadeInUp 0.7s;
+}
+.internship-item h3 {
+  color: #007cf0;
+  margin-top: 0;
+}
+.internship-item ul {
+  padding-left: 20px;
+}
+
+.App.dark .internship-item {
+  background: rgba(31, 41, 55, 0.85);
+  border: 1.5px solid #374151;
+  color: #d1d5db;
+}
+.internship-item h3 {
+  color: #3b82f6;
+}
+
+.skills-section {
+  text-align: left;
+}
+.skills-list {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+.skill {
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,124,240,0.10);
+  padding: 28px 22px 18px 22px;
+  min-width: 120px;
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid #e0e7ff;
+  margin-bottom: 18px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  backdrop-filter: blur(6px);
+  animation: fadeInUp 0.7s;
+}
+.skill:hover {
+  transform: translateY(-8px) scale(1.06);
+  background: rgba(0,124,240,0.07);
+  box-shadow: 0 8px 32px rgba(0,124,240,0.13);
+}
+.App.dark .skill:hover {
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.18);
+}
+.skill img {
+  width: 48px;
+  height: 48px;
   margin-bottom: 10px;
-  font-size: 1rem;
+  filter: drop-shadow(0 2px 8px rgba(0,124,240,0.10));
+}
+.skill span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #007cf0;
+}
+
+.App.dark .skill span {
+  color: #3b82f6;
 }
 
 .resume-section {
@@ -132,20 +353,215 @@ section h2 {
   padding: 24px 0;
   margin-top: 40px;
   font-size: 1rem;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -2px 12px rgba(0,124,240,0.07);
 }
 
-@media (max-width: 700px) {
+.App.dark .footer {
+  background: #111827;
+  color: #d1d5db;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+.footer-socials a {
+  color: #fff;
+  transition: color 0.2s, transform 0.2s;
+}
+.footer-socials a:hover {
+  color: #00dfd8;
+  transform: scale(1.1);
+}
+.App.dark .footer-socials a {
+  color: #d1d5db;
+}
+.App.dark .footer-socials a:hover {
+  color: #10b981;
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
   .projects-grid {
     flex-direction: column;
-    gap: 0;
+    gap: 20px;
+  }
+  .research-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .research-img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
   }
   section {
-    padding: 0 8px;
+    padding: 0 16px;
   }
   .hero-section h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 60px 15px 40px 15px;
+  }
+  .hero-section h1 {
+    font-size: 2rem;
   }
   .subtitle {
     font-size: 1.1rem;
   }
+  section h2 {
+    font-size: 1.8rem;
+  }
+  .project-card, .skill, .internship-item, .research-card {
+    padding: 20px;
+  }
+  .skill {
+    padding: 20px 15px 15px 15px;
+    min-width: 100px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cta-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-toggle-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+.theme-toggle-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle-btn:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.1);
+}
+.App.dark .theme-toggle-btn {
+  background: rgba(0,0,0,0.2);
+  color: #fff;
+}
+.App.dark .theme-toggle-btn:hover {
+  background: rgba(0,0,0,0.4);
+}
+
+/* Dark Theme Styles */
+body.dark {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: #d1d5db;
+}
+
+.App.dark .beautiful-bg {
+  background: linear-gradient(120deg, #111827 60%, #374151 100%);
+}
+
+.App.dark .hero-section {
+  background: linear-gradient(120deg, #3b82f6 0%, #10b981 100%);
+}
+
+.App.dark .cta-btn {
+  background: #fff;
+  color: #3b82f6;
+}
+.App.dark .cta-btn:hover {
+  background: #e5e7eb;
+}
+.App.dark .cta-btn.secondary:hover {
+  background: #fff;
+  color: #3b82f6;
+}
+
+.App.dark section h2 {
+  color: #3b82f6;
+}
+
+.App.dark .project-card, 
+.App.dark .skill, 
+.App.dark .internship-item, 
+.App.dark .research-card {
+  background: rgba(31, 41, 55, 0.85);
+  border-color: #374151;
+  color: #d1d5db;
+}
+
+.App.dark .project-card:hover, 
+.App.dark .skill:hover,
+.App.dark .internship-item:hover,
+.App.dark .research-card:hover {
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.18);
+  border-color: #3b82f6;
+}
+
+.App.dark .project-card h3, 
+.App.dark .research-content h3 {
+  color: #10b981;
+}
+
+.App.dark .project-card a {
+  color: #3b82f6;
+}
+
+.App.dark .read-more-btn {
+  background: #3b82f6;
+  color: #fff;
+}
+.App.dark .read-more-btn:hover {
+  background: #2563eb;
+}
+
+.App.dark .skill span, .App.dark .internship-item h3 {
+  color: #3b82f6;
+}
+
+.App.dark .footer {
+  background: #111827;
 }
