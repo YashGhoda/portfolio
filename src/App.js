@@ -14,6 +14,7 @@ import aiquizzer from './assets/aiquizzer.png';
 import aiResumeChecker from './assets/airesumechecker.png';
 import youtubebackend from './assets/youtubebackend.png';
 import hero from './assets/hero.png';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div className={`App beautiful-bg ${theme}`}>
+      <Analytics />
       <header className="hero-section">
         <div className="theme-toggle-container">
           <button onClick={toggleTheme} className="theme-toggle-btn">
